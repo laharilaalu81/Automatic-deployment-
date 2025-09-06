@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .temperature-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        #currentTemperature {
+            font-size: 3em;
+            color: #e44d26;
+            margin-top: 20px;
+        }
+        .unit {
+            font-size: 0.5em;
+            vertical-align: super;
+        }
+    </style>
+</head>
+<body>
+    <div class="temperature-container">
+        <h1>Current Temperature</h1>
+        <div id="currentTemperature">Loading...</div>
+    </div>
+
+    <script>
+        // This is a placeholder for fetching real-time data.
+        // In a real application, you would fetch data from a server endpoint.
+        function fetchTemperature() {
+            // Example: Replace with an actual API call
+            // fetch('/api/temperature')
+            //     .then(response => response.json())
+            //     .then(data => {
+            //         document.getElementById('currentTemperature').innerHTML = 
+            //             `${data.temperature}°C`; // Assuming data.temperature holds the value
+            //     })
+            //     .catch(error => {
+            //         console.error('Error fetching temperature:', error);
+            //         document.getElementById('currentTemperature').innerHTML = 'Error';
+            //     });
+
+            // For demonstration, use a random value
+            const randomTemp = (Math.random() * 20 + 15).toFixed(1); // Between 15 and 35
+            document.getElementById('currentTemperature').innerHTML = 
+                `${randomTemp}<span class="unit">°C</span>`;
+        }
+
+        // Fetch temperature initially
+        fetchTemperature();
+
+        // Update temperature every 5 seconds (for demonstration)
+        setInterval(fetchTemperature, 5000);
+    </script>
+</body>
+</html>
